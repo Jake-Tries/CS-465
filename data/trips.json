@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Gale Reef",
+    "length": "7 nights",
+    "resort": "Emerald Bay",
+    "perPerson": "$799",
+    "image": "reef1.jpg",
+    "description": "Explore the beautiful coral reefs and crystal clear waters of Gale Reef."
+  },
+  {
+    "name": "Dawson’s Reef",
+    "length": "5 nights",
+    "resort": "Blue Lagoon",
+    "perPerson": "$599",
+    "image": "reef2.jpg",
+    "description": "Enjoy relaxing beaches and incredible diving experiences at Dawson’s Reef."
+  },
+  {
+    "name": "Claire’s Reef",
+    "length": "6 nights",
+    "resort": "Paradise Cove",
+    "perPerson": "$699",
+    "image": "reef3.jpg",
+    "description": "Experience tropical adventures and breathtaking ocean views at Claire’s Reef."
+  }
+]

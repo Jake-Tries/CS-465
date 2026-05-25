@@ -1,7 +1,20 @@
-module.exports.index = function(req, res){
-    res.render('index', { title: 'Travlr Getaways' });
+const trips = require('../../data/trips.json');
+
+const homeList = (req, res) => {
+    res.render('index', {
+        title: 'Travlr Getaways',
+        trips
+    });
 };
 
-module.exports.travel = function(req, res){
-    res.render('travel', { title: 'Travel' });
+const travel = (req, res) => {
+    res.render('travel', {
+        title: 'Travel',
+        trips
+    });
+};
+
+module.exports = {
+    homeList,
+    travel
 };
