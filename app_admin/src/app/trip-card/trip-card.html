@@ -11,5 +11,8 @@
     <p><strong>Resort:</strong> {{ trip.resort }}</p>
     <p><strong>Price:</strong> ${{ trip.perPerson }}</p>
     <p>{{ trip.description }}</p>
+
+    <button class="btn btn-info me-2" (click)="editTrip()">Edit Trip</button>
+    <button class="btn btn-danger" (click)="deleteTrip()">Delete Trip</button>
   </div>
 </div>

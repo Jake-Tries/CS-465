@@ -16,7 +16,19 @@ export class TripData {
     return this.http.get<Trip[]>(this.apiBaseUrl);
   }
 
+  public getTrip(tripCode: string): Observable<Trip[]> {
+    return this.http.get<Trip[]>(`${this.apiBaseUrl}/${tripCode}`);
+  }
+
   public addTrip(formData: Trip): Observable<Trip> {
     return this.http.post<Trip>(this.apiBaseUrl, formData);
+  }
+
+  public updateTrip(formData: Trip): Observable<Trip> {
+    return this.http.put<Trip>(`${this.apiBaseUrl}/${formData.code}`, formData);
+  }
+
+  public deleteTrip(tripCode: string): Observable<any> {
+    return this.http.delete(`${this.apiBaseUrl}/${tripCode}`);
   }
 }

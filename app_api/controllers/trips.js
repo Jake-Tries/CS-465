@@ -44,8 +44,55 @@ const tripsAddTrip = async (req, res) => {
   }
 };
 
+// PUT update trip by code
+const tripsUpdateTrip = async (req, res) => {
+  try {
+    const updatedTrip = await Model.findOneAndUpdate(
+      { code: req.params.tripCode },
+      {
+        code: req.body.code,
+        name: req.body.name,
+        length: req.body.length,
+        start: req.body.start,
+        resort: req.body.resort,
+        perPerson: req.body.perPerson,
+        image: req.body.image,
+        description: req.body.description
+      },
+      { new: true }
+    ).exec();
+
+    if (!updatedTrip) {
+      return res.status(404).json({ message: 'Trip not found' });
+    }
+
+    return res.status(200).json(updatedTrip);
+  } catch (err) {
+    return res.status(400).json(err);
+  }
+};
+
+// DELETE trip by code
+const tripsDeleteTrip = async (req, res) => {
+  try {
+    const deletedTrip = await Model.findOneAndDelete({
+      code: req.params.tripCode
+    }).exec();
+
+    if (!deletedTrip) {
+      return res.status(404).json({ message: 'Trip not found' });
+    }
+
+    return res.status(200).json({ message: 'Trip deleted successfully' });
+  } catch (err) {
+    return res.status(400).json(err);
+  }
+};
+
 module.exports = {
   tripsList,
   tripsFindByCode,
-  tripsAddTrip
+  tripsAddTrip,
+  tripsUpdateTrip,
+  tripsDeleteTrip
 };
