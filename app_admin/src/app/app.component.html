@@ -7,17 +7,8 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">{{ title }}</a>
+<app-navbar></app-navbar>
 
-    <div class="navbar-nav">
-      <a class="nav-link" routerLink="/">Trips</a>
-      <a class="nav-link" routerLink="/add-trip">Add Trip</a>
-    </div>
-  </div>
-</nav>
-
-<div class="container mt-4">
+<div class="container mt-3">
   <router-outlet></router-outlet>
 </div>

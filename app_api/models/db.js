@@ -18,3 +18,5 @@ mongoose.connection.on('disconnected', () => {
 });
 
 require('./travlr');
+
+require('./users');

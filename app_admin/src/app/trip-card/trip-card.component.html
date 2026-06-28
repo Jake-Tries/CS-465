@@ -10,7 +10,7 @@
     <p><strong>Length:</strong> {{ trip.length }}</p>
     <p><strong>Per Person:</strong> {{ trip.perPerson }}</p>
 
-    <div class="d-flex gap-2">
+    <div class="d-flex gap-2" *ngIf="isLoggedIn()">
       <a class="btn btn-primary" [routerLink]="['/edit-trip', trip.code]">Edit</a>
       <button class="btn btn-danger" (click)="onDelete()">Delete</button>
     </div>
