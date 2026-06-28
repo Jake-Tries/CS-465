@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
-import { AddTrip } from './add-trip/add-trip';
-import { EditTrip } from './edit-trip/edit-trip';
-import { TripListing } from './trip-listing/trip-listing';
+
+import { TripListingComponent } from './trip-listing/trip-listing.component';
+import { AddTripComponent } from './add-trip/add-trip.component';
+import { EditTripComponent } from './edit-trip/edit-trip.component';
 
 export const routes: Routes = [
-  { path: 'add-trip', component: AddTrip },
-  { path: 'edit-trip', component: EditTrip },
-  { path: '', component: TripListing, pathMatch: 'full' }
+  { path: '', component: TripListingComponent },
+  { path: 'add-trip', component: AddTripComponent },
+  { path: 'edit-trip/:code', component: EditTripComponent }
 ];

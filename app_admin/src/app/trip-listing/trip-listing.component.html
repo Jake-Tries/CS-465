@@ -1,0 +1,21 @@
+<div class="row mb-3">
+  <div class="col">
+    <h2>Trip Listing</h2>
+    <p>{{ message }}</p>
+  </div>
+
+  <div class="col text-end">
+    <button class="btn btn-info" (click)="addTrip()">Add Trip</button>
+  </div>
+</div>
+
+<div class="row">
+  @for (trip of trips; track $index) {
+    <div class="col-md-4 mb-4">
+      <app-trip-card
+        [trip]="trip"
+        (deleteTripEvent)="deleteTrip($event)"
+      ></app-trip-card>
+    </div>
+  }
+</div>

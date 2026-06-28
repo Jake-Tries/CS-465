@@ -3,28 +3,28 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Trip } from '../models/trip';
-import { TripData } from '../services/trip-data';
+import { TripDataService } from '../services/trip-data.service';
 
 @Component({
   selector: 'app-add-trip',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './add-trip.html',
-  styleUrl: './add-trip.css'
+  templateUrl: './add-trip.component.html',
+  styleUrl: './add-trip.component.css'
 })
-export class AddTrip implements OnInit {
+export class AddTripComponent implements OnInit {
   public addForm!: FormGroup;
-  public submitted = false;
+  submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private tripDataService: TripData
+    private tripDataService: TripDataService
   ) {}
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({
+      _id: [],
       code: ['', Validators.required],
       name: ['', Validators.required],
       length: ['', Validators.required],
@@ -39,17 +39,15 @@ export class AddTrip implements OnInit {
   public onSubmit(): void {
     this.submitted = true;
 
-    if (this.addForm.invalid) {
-      return;
+    if (this.addForm.valid) {
+      this.tripDataService.addTrip(this.addForm.value).subscribe({
+        next: () => {
+          this.router.navigate(['']);
+        },
+        error: (error: any) => {
+          console.log('Error: ' + error);
+        }
+      });
     }
-
-    this.tripDataService.addTrip(this.addForm.value as Trip).subscribe({
-      next: () => {
-        window.location.href = '/';
-      },
-      error: (error: any) => {
-        console.error('Error adding trip:', error);
-      }
-    });
   }
 }

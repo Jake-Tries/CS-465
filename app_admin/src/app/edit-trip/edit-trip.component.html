@@ -1,0 +1,47 @@
+<h2>Edit Trip</h2>
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+  <div class="mb-3">
+    <label>Code</label>
+    <input class="form-control" formControlName="code" readonly>
+  </div>
+
+  <div class="mb-3">
+    <label>Name</label>
+    <input class="form-control" formControlName="name">
+  </div>
+
+  <div class="mb-3">
+    <label>Length</label>
+    <input class="form-control" formControlName="length">
+  </div>
+
+  <div class="mb-3">
+    <label>Start</label>
+    <input class="form-control" formControlName="start">
+  </div>
+
+  <div class="mb-3">
+    <label>Resort</label>
+    <input class="form-control" formControlName="resort">
+  </div>
+
+  <div class="mb-3">
+    <label>Per Person</label>
+    <input class="form-control" formControlName="perPerson">
+  </div>
+
+  <div class="mb-3">
+    <label>Image</label>
+    <input class="form-control" formControlName="image">
+  </div>
+
+  <div class="mb-3">
+    <label>Description</label>
+    <textarea class="form-control" formControlName="description"></textarea>
+  </div>
+
+  <button class="btn btn-success" type="submit">Save Changes</button>
+
+</form>
